@@ -5,5 +5,4 @@ router.get("/", async (req, res) => {
   res.render("home", { logged_in: req.session.logged_in });
 });
 
-// GET
 module.exports = router;
