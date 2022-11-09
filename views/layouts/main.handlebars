@@ -13,6 +13,16 @@
     <h1>
       Get Route
     </h1>
+    {{#if logged_in}}
+    <nav>
+    <a href="/"><button class="btn" href="/" id="Home">Home</button></a>
+      <button class="btn" id="logout">logout</button>
+    </nav>
+    {{else}}
+    <nav>
+    <a href="/login"><button class="btn" href="/login" id="login">login</button></a>
+    </nav>
+    {{/if}}
   </header>
   <main>
     {{{ body }}}
