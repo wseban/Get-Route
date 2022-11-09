@@ -1,0 +1,12 @@
+[
+    {
+      "content": "This product sucks",
+      "user_id": 1,
+      "product_id": 2
+    },
+    {
+        "content": "This product is amazing",
+        "user_id": 2,
+        "product_id": 1
+    }
+  ]
