@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS getroute_db;
+CREATE DATABASE getroute_db;
