@@ -1,19 +1,22 @@
-<div class="card" data-products-id={{id}}>
-   <div class="card-header">
-      <h4>{{name}}</h4>
-   </div>
-   <div class="card-body">
-      {{description}}
-      <br>
-      {{stock}}
-      <br>
-      ${{price}}
-      <br>
-      {{#if homepage}}
-      <button class="btn buyBtn">Buy Product</button>
-      {{/if}}
-      {{#if profile}}
-      <button class="btn buyBtn">Buy Product</button>
-      {{/if}}
+<div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+   <div class="card" data-products-id={{id}}>
+      <div class="card-header">
+         <h4>{{name}}</h4>
+      </div>
+      <div class="card-body">
+         {{description}}
+         <br>
+         {{stock}}
+         <br>
+         ${{price}}
+         <br>
+         {{#if homepage}}
+         <button class="btn buy-btn btn-success">Buy</button>
+         {{/if}}
+         {{#if profile}}
+         <button class="btn edit-btn btn-secondary">Edit</button>
+         <button class="btn delete-btn btn-danger">Delete</button>
+         {{/if}}
+      </div>
    </div>
 </div>
