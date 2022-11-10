@@ -5,8 +5,11 @@ const withAuth = require("../utils/auth");
 // GET route for display all products on the homepage
 router.get("/", async (req, res) => {
   const productsDataDb = await Product.findAll({});
-  const products = productsDataDb.map((product) => product.get({plain:true}));
-  res.render("home", {products, logged_in: req.session.logged_in, homepage: true });
+  const products = productsDataDb.map((product) => {
+    let out = product.get({plain:true})
+    return {...out, homepage: true}
+})
+  res.render("home", {products, logged_in: req.session.logged_in });
 });
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
@@ -21,8 +24,12 @@ router.get("/profile", withAuth, async (req, res) => {
       user_id: req.session.user_id
     }
   });
-  const products = productsDataDb.map((product) => product.get({plain:true}));
-  res.render("profile", {products, logged_in: req.session.logged_in });
+  const products = productsDataDb.map((product) => {
+    let out = product.get({plain:true})
+    return {...out, profile: true}
+  }
+);
+  res.render("profile", { products, logged_in: req.session.logged_in});
 });
 
 module.exports = router;

@@ -12,5 +12,33 @@
     "price": 90.0,
     "stock": 25,
     "user_id": 2
+  },
+    {
+    "name": "Plain T-Shirt",
+    "description": "Hello world- Testing",
+    "price": 14.99,
+    "stock": 14,
+    "user_id": 1
+  },
+  {
+    "name": "Running Sneakers",
+    "description": "Hello world-Testing",
+    "price": 90.0,
+    "stock": 25,
+    "user_id": 2
+  },
+  {
+    "name": "Plain T-Shirt",
+    "description": "Hello world- Testing",
+    "price": 14.99,
+    "stock": 14,
+    "user_id": 1
+  },
+  {
+    "name": "Running Sneakers",
+    "description": "Hello world-Testing",
+    "price": 90.0,
+    "stock": 25,
+    "user_id": 2
   }
 ]
