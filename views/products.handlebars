@@ -1,28 +1,31 @@
 <form>
-  <div class="form-group">
+  <div class="form-group" >
     <label for="product-name">Product Name</label>
-    <input type="input" class="form-control" id="product-name" />
+    <input type="input" class="form-control" id="product-name" value="{{product.name}}"/>
   </div>
   <div class="form-group">
     <label for="description">Description</label>
-    <textarea class="form-control" id="description" rows="3"></textarea>
+    <textarea class="form-control" id="description" rows="3">{{product.description}}</textarea>
   </div>
   <div class="form-group">
     <label for="price">Price</label>
-    <input type="input" class="form-control" id="price" />
+    <input type="input" class="form-control" id="price" value="{{product.price}}" />
   </div>
-  <div class="form-group">
+   <div class="form-group">
     <label for="stock">Stock</label>
-    <select class="form-control" id="stock">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
+    <input type="input" class="form-control" id="stock" value="{{product.stock}}" />
   </div>
   <br />
-  <button type="button" class="btn btn-primary" id="add-product">Add Product</button>
-</form>
+  
+  {{#if product}}
+  <button type="button" class="btn btn-primary" id="update-product" data-product-id={{product.id}} >Save Changes</button>
+  {{else}}
+    <button type="button" class="btn btn-primary" id="add-product">Add Product</button>
 
+  {{/if}}
+</form>
+{{#if product}}
+<script src="/js/updateproduct.js"></script>
+{{else}}
 <script src="/js/addproduct.js"></script>
+{{/if}}

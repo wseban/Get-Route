@@ -1,13 +1,13 @@
 const addProductBtn = document.getElementById("add-product");
-// const existingPostBtns = document.querySelectorAll('.post-button')
+const existingPostBtns = document.querySelectorAll('.edit-btn')
 const deleteBtns = document.querySelectorAll(".delete-btn");
 
-// existingPostBtns.forEach(button => {
-//     button.addEventListener('click', (event) => {
-//         const id = event.target.closest('.post-button').getAttribute('data-post-id')
-//         document.location = `/dashboard/posts/${id}`}
-//         )
-// })
+existingPostBtns.forEach(button => {
+    button.addEventListener('click', (event) => {
+      const id = event.target.closest(".card").getAttribute("data-products-id");
+        document.location = `/profile/products/${id}`}
+        )
+})
 
 deleteBtns.forEach((button) => {
   button.addEventListener("click", async (event) => {

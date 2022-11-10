@@ -39,4 +39,15 @@ router.get("/profile", withAuth, async (req, res) => {
 router.get("/profile/products", withAuth, (req, res) => {
   res.render("products", { logged_in: req.session.logged_in });
 });
+
+router.get("/profile/products/:id", withAuth, async (req, res) => {
+  const productDataDb = await Product.findByPk(req.params.id,{
+    where: {
+      user_id: req.session.user_id,
+    }
+  }) 
+  const product = productDataDb.get({plain:true});
+
+  res.render("products", {product, logged_in: req.session.logged_in });
+});
 module.exports = router;
