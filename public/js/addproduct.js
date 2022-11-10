@@ -6,6 +6,7 @@ const createFormHandler = async (event) => {
   const price = document.querySelector("#price").value.trim();
   const stock = document.querySelector("#stock").value.trim();
 
+
   if (isNaN(price)) {
     alert("Price must be a number");
   }
