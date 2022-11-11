@@ -3,7 +3,7 @@ const { Product } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // POST route for creating a new product
-router.post("/", withAuth, async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const newProduct = await Product.create({
       ...req.body,
@@ -29,6 +29,19 @@ router.put("/:id", withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.put("/purchase/:id", async (req, res) => {
+  try {
+    const updatedProduct = await Product.increment(
+      { stock: -1 },
+      { where: { id: req.params.id } }
+    )
+    res.status(200).json(updatedProduct);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 
 // DELETE route for removing the product from the inventory.
 router.delete("/:id", withAuth, async (req, res) => {
