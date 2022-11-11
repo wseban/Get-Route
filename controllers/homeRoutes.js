@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Product } = require("../models");
+const { User, Product, Review } = require("../models");
 const withAuth = require("../utils/auth");
 
 // GET route for display all products on the homepage
@@ -50,4 +50,17 @@ router.get("/profile/products/:id", withAuth, async (req, res) => {
 
   res.render("products", {product, logged_in: req.session.logged_in });
 });
+
+router.get("/products/:id", async (req, res) => {
+    const productDataDb = await Product.findByPk(req.params.id) 
+    const product = productDataDb.get({plain:true});
+
+    const reviewDataDb = await Review.findAll({
+        where: 
+        {product_id: req.params.id},
+        include: User
+    })
+    const reviews = reviewDataDb.map((review) => review.get({plain :true}))
+    res.render("product-details", {product, reviews ,logged_in: req.session.logged_in });
+  });
 module.exports = router;

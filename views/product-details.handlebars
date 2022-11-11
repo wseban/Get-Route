@@ -1,0 +1,33 @@
+<div class="row mb-5">
+    <div class="col-6">
+        <h2>
+            {{product.name}}
+        </h2>
+        <div>
+            {{product.description}}
+        </div>
+        <div>
+            In Stock: {{product.stock}}
+        </div>
+    </div>
+    <div class="col-6">
+        <div>
+            ${{product.price}}
+        </div>
+        <div>
+            <button class="btn buy-btn btn-success">Buy</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <h3>
+        Customer Reviews
+    </h3>
+{{#each reviews as |review| }}
+{{> review}}
+{{/each}}
+</div>
+{{#if logged_in}}
+    <button class="btn btn-success" id = "add-review" data-product-id = {{product.id}}>Add Review</button>
+    <script src="/js/addreview.js"></script>
+{{/if}}
