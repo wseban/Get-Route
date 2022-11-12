@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Product } = require("../../models");
+const { Product, ProductTag } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // POST route for creating a new product
@@ -9,7 +9,17 @@ router.post("/", async (req, res) => {
       ...req.body,
       user_id: req.session.user_id,
     });
-
+    if (req.body.tag_ids.length) {
+      const productTagArr = req.body.tag_ids.map((tag_id) => {
+        return {
+          product_id: newProduct.id,
+          tag_id,
+        }
+      })
+      const productTagIds = await ProductTag.bulkCreate(productTagArr)
+      res.status(200).json(productTagIds)
+      return;
+    }
     res.status(200).json(newProduct);
   } catch (err) {
     res.status(400).json(err);
