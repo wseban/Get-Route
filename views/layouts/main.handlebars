@@ -52,14 +52,14 @@
       </div>
     </header>
     <main class="container-fluid mt-5">
-      <div class="container">
+      <div class="container" style="height:80%; overflow:scroll">
         {{{body}}}
       </div>
     </main>
     {{#if logged_in}}
       <script src="/js/logout.js"></script>
     {{/if}}
-    <div class="footer fixed-bottom" style="height: 10vh">
+    <div class="footer fixed-bottom" style="height: 6vh">
       <p class="content p-4 m-2" style="text-align: center">
         Copyright &copy; 2022 Get Route.</p>
     </div>
@@ -77,5 +77,4 @@
     <script src="/js/buyproduct.js"></script>
 
   </body>
-
 </html>
