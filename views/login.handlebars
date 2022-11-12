@@ -1,6 +1,7 @@
-<h2>Login</h2>
+<!--Login form-->
 
 <form class="form login-form">
+  <h2>Login</h2>
   <div class="form-group">
     <label for="email-login">email:</label>
     <input class="form-input" type="text" id="email-login" />
@@ -12,9 +13,13 @@
   <div class="form-group">
     <button class="btn btn-primary" type="submit">login</button>
   </div>
+  <a href="#" onclick="showSignupFormHandler(event)">Create an account</a>
 </form>
 
-<form class="form create-form">
+<!--Sign Up form-->
+
+<form class="form create-form" style="display:none">
+  <h2>Sign Up</h2>
   <div class="form-group">
     <label for="name-create">username:</label>
     <input class="form-input" type="text" id="name-create" />
