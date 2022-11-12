@@ -29,3 +29,10 @@ const showSignupFormHandler = (event) => {
   document.querySelector(".login-form").style.display = "none";
   document.querySelector(".create-form").style.display = "block";
 };
+
+const showLoginFormHandler = (event) => {
+  event.preventDefault();
+
+  document.querySelector(".login-form").style.display = "block";
+  document.querySelector(".create-form").style.display = "none";
+};
