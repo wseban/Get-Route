@@ -1,12 +1,27 @@
 [
-    {
-      "username": "billyBobAwesome",
-      "email": "bobisthebest@aol.com",
-      "password": "password1234"
-    },
-    {
-        "username": "Oliver",
-        "email": "oliver@hotmail.com",
-        "password": "password4321"
-    }
-  ]
+  {
+    "username": "billyBobAwesome",
+    "email": "bobisthebest@aol.com",
+    "password": "password1234"
+  },
+  {
+    "username": "oliverputnam",
+    "email": "oliverputnam@aol.com",
+    "password": "password4321"
+  },
+  {
+    "username": "emmajones",
+    "email": "emmajones@aol.com",
+    "password": "emma@123"
+  },
+  {
+    "username": "ethanwilliams",
+    "email": "ethanwilliams@aol.com",
+    "password": "ewilliams@121"
+  },
+  {
+    "username": "jacobsmith",
+    "email": "jacobsmith@aol.com",
+    "password": "jsmith@555"
+  }
+]
