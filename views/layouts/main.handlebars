@@ -1,43 +1,75 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
     <title>Get Route</title>
-</head>
-<body>
-      <header class="d-flex justify-content-between align-center p-2">
-    <h1>
-      Get Route
-    </h1>
+  </head>
+  <body>
+    <header>
+      <div
+        class="jumbotron jumbotron-fluid p-5"
+        style="background-color: #c67b5c ; margin-top:-30px"
+      >
+        <!--  #89a0af  blue-ish grey shade//-->
+        <div
+          class="container-fluid d-flex justify-content-between p-2 align-items-center"
+        >
+          <h1>
+            Get Route
+          </h1>
+          {{#if logged_in}}
+            <nav class="d-flex justify-content-end align-items-center">
+              <a href="/"><button
+                  class="btn"
+                  href="/"
+                  id="Home"
+                >Home</button></a>
+              <a href="/profile"><button
+                  class="btn"
+                  href="/profile"
+                  id="profile"
+                >Profile</button></a>
+              <button class="btn" id="logout">logout</button>
+
+            </nav>
+          {{else}}
+            <nav>
+              <a href="/login"><button
+                  class="btn"
+                  href="/login"
+                  id="login"
+                >login</button></a>
+            </nav>
+          {{/if}}
+        </div>
+      </div>
+    </header>
+    <main class="container-fluid mt-5">
+      <div class="container">
+        {{{body}}}
+      </div>
+    </main>
     {{#if logged_in}}
-    <nav>
-    <a href="/"><button class="btn" href="/" id="Home">Home</button></a>
-      <a href="/profile"><button class="btn" href="/profile" id="profile">Profile</button></a>
-      <button class="btn" id="logout">logout</button>
-      
-      
-    </nav>
-    {{else}}
-    <nav>
-    <a href="/login"><button class="btn" href="/login" id="login">login</button></a>
-    </nav>
+      <script src="/js/logout.js"></script>
     {{/if}}
-  </header>
-  <main>
-    <div class="container">
-    {{{ body }}}
-    </div>
-  </main>
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"
+    ></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/buyproduct.js"></script>
-</body>
+  </body>
 </html>

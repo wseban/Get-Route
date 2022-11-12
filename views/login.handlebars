@@ -1,41 +1,79 @@
 <!--Login form-->
 
 <form class="form login-form">
-  <h2>Login</h2>
-  <div class="form-group">
-    <label for="email-login">email:</label>
-    <input class="form-input" type="text" id="email-login" />
-  </div>
-  <div class="form-group">
-    <label for="password-login">password:</label>
-    <input class="form-input" type="password" id="password-login" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">login</button>
-  </div>
-  <a href="#" onclick="showSignupFormHandler(event)">Create an account</a>
-</form>
+  <div class="card text-center" style="border:2px solid #7d7979">
+    <h2 class="card-header">Login</h2>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="email-login">Email </label><br />
+        <input
+          class="form-input"
+          type="text"
+          id="email-login"
+          style="width:30%"
+        />
+      </div><br />
+      <div class="form-group">
+        <label for="password-login">Password</label><br />
+        <input
+          class="form-input"
+          type="password"
+          id="password-login"
+          style="width:30%"
+        />
+      </div><br />
+      <div class="form-group">
+        <button
+          class="btn btn-primary"
+          type="submit"
+          style="width:30%"
+        >login</button>
+      </div><br />
+      <a href="#" onclick="showSignupFormHandler(event)">Create an account</a>
 
+    </div>
+  </div>
+</form>
 <!--Sign Up form-->
 
 <form class="form create-form" style="display:none">
-  <h2>Sign Up</h2>
-  <div class="form-group">
-    <label for="name-create">username:</label>
-    <input class="form-input" type="text" id="name-create" />
+  <div class="card text-center" style="border:2px solid #7d7979">
+    <h2 class="card-header">Sign Up</h2>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="name-create">Username</label><br />
+        <input
+          class="form-input"
+          type="text"
+          id="name-create"
+          style="width:30%"
+        />
+      </div><br />
+      <div class="form-group">
+        <label for="email-login-create">Email</label><br />
+        <input
+          class="form-input"
+          type="text"
+          id="email-login-create"
+          style="width:30%"
+        />
+      </div><br />
+      <div class="form-group">
+        <label for="password-login-create">Password</label><br />
+        <input
+          class="form-input"
+          type="password"
+          id="password-login-create"
+          style="width:30%"
+        />
+      </div><br />
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit" style="width:30%">Create
+          account</button>
+      </div><br />
+      <a href="#" onclick="showLoginFormHandler(event)">Login</a>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="email-login-create">email:</label>
-    <input class="form-input" type="text" id="email-login-create" />
-  </div>
-  <div class="form-group">
-    <label for="password-login-create">password:</label>
-    <input class="form-input" type="password" id="password-login-create" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">create account</button>
-  </div>
-  <a href="#" onclick="showLoginFormHandler(event)">Login</a>
 </form>
 
 <script src="/js/login.js"></script>
