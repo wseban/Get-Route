@@ -1,5 +1,5 @@
 <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
-   <div class="card product-card" data-product-id={{id}}>
+   <div class="card" data-product-id={{id}}>
       <div class="card-header">
          <h4>{{name}}</h4>
       </div>
@@ -10,8 +10,12 @@
          <br>
          ${{price}}
          <br>
+         {{#each tags as |tag| }}
+         {{> tag-pill}}
+         {{/each}}
+         <br>
          {{#if homepage}}
-         <button class="btn buy-btn btn-success" data-product-id={{id}}>Buy</button>
+         <button class="btn buy-btn btn-success mt-2" data-product-id={{id}}>Buy</button>
          {{/if}}
          {{#if profile}}
          <button class="btn edit-btn btn-secondary">Edit</button>

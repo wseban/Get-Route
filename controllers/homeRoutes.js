@@ -1,15 +1,30 @@
 const router = require("express").Router();
-const { User, Product, Review, Tag } = require("../models");
+const { User, Product, Review, Tag, ProductTag } = require("../models");
 const withAuth = require("../utils/auth");
 
 // GET route for display all products on the homepage
 router.get("/", async (req, res) => {
-  const productsDataDb = await Product.findAll({include: [{model: Tag}]});
+  let whereClause = {}
+  const allowedTags = req.query.tag_id;
+  if (allowedTags) {
+    const allowedProdsDb = await ProductTag.findAll({where: {
+      tag_id: req.query.tag_id.split(",")
+    }})
+    const allowedProds = allowedProdsDb.map((prod) => prod.get({plain:true})).map((prod) => prod.product_id)
+    whereClause = {
+      id: allowedProds
+    }
+  }
+ 
+  const productsDataDb = await Product.findAll({where: whereClause, include: [{model: Tag}]} );
   const products = productsDataDb.map((product) => {
     let out = product.get({ plain: true });
     return { ...out, homepage: true };
   });
-  res.render("home", { products, logged_in: req.session.logged_in });
+
+  const tagsDataDb = await Tag.findAll({});
+  const tags = tagsDataDb.map((tag) => tag.get({plain: true}))
+  res.render("home", { products, tags, logged_in: req.session.logged_in });
 });
 
 //GET route is for login page
