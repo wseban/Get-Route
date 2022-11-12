@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const { User, Product, Review } = require("../models");
+const { User, Product, Review, Tag } = require("../models");
 const withAuth = require("../utils/auth");
 
 // GET route for display all products on the homepage
 router.get("/", async (req, res) => {
-  const productsDataDb = await Product.findAll({});
+  const productsDataDb = await Product.findAll({include: [{model: Tag}]});
   const products = productsDataDb.map((product) => {
     let out = product.get({ plain: true });
     return { ...out, homepage: true };
@@ -27,6 +27,7 @@ router.get("/profile", withAuth, async (req, res) => {
     where: {
       user_id: req.session.user_id,
     },
+    include: [{model: Tag}]
   });
   const products = productsDataDb.map((product) => {
     let out = product.get({ plain: true });
@@ -40,11 +41,13 @@ router.get("/profile/products", withAuth, (req, res) => {
   res.render("products", { logged_in: req.session.logged_in });
 });
 
+
 router.get("/profile/products/:id", withAuth, async (req, res) => {
   const productDataDb = await Product.findByPk(req.params.id,{
     where: {
       user_id: req.session.user_id,
-    }
+    },
+    include: [{model: Tag}]
   }) 
   const product = productDataDb.get({plain:true});
 
@@ -52,7 +55,7 @@ router.get("/profile/products/:id", withAuth, async (req, res) => {
 });
 
 router.get("/products/:id", async (req, res) => {
-    const productDataDb = await Product.findByPk(req.params.id) 
+    const productDataDb = await Product.findByPk(req.params.id, {include: [{model: Tag}]}) 
     const product = productDataDb.get({plain:true});
 
     const reviewDataDb = await Review.findAll({
