@@ -4,15 +4,20 @@ const withAuth = require("../utils/auth");
 
 // GET route for display all products on the homepage
 router.get("/", async (req, res) => {
+  const tagsDataDb = await Tag.findAll({});
+  const tags = tagsDataDb.map((tag) => tag.get({plain: true}))
   let whereClause = {}
   const allowedTags = req.query.tag_id;
   if (allowedTags) {
     const allowedProdsDb = await ProductTag.findAll({where: {
-      tag_id: req.query.tag_id.split(",")
+      tag_id: req.query.tag_id.split(",").map(Number)
     }})
     const allowedProds = allowedProdsDb.map((prod) => prod.get({plain:true})).map((prod) => prod.product_id)
     whereClause = {
       id: allowedProds
+    }
+    for (tag of tags) {
+      tag['checked'] = req.query.tag_id.split(",").map(Number).includes(tag.id)
     }
   }
  
@@ -22,8 +27,7 @@ router.get("/", async (req, res) => {
     return { ...out, homepage: true };
   });
 
-  const tagsDataDb = await Tag.findAll({});
-  const tags = tagsDataDb.map((tag) => tag.get({plain: true}))
+
   res.render("home", { products, tags, logged_in: req.session.logged_in });
 });
 
