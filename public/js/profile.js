@@ -4,14 +4,14 @@ const deleteBtns = document.querySelectorAll(".delete-btn");
 
 existingPostBtns.forEach(button => {
     button.addEventListener('click', (event) => {
-      const id = event.target.closest(".card").getAttribute("data-product-id");
+      const id = event.target.closest(".product-card").getAttribute("data-product-id");
         document.location = `/profile/products/${id}`}
         )
 })
 
 deleteBtns.forEach((button) => {
   button.addEventListener("click", async (event) => {
-    const id = event.target.closest(".card").getAttribute("data-product-id");
+    const id = event.target.closest(".product-card").getAttribute("data-product-id");
     const response = await fetch(`/api/products/${id}`, {
       method: "DELETE",
     });

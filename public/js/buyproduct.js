@@ -1,6 +1,7 @@
 const buyBtns = document.querySelectorAll(".buy-btn")
 buyBtns.forEach((button) => {
     button.addEventListener('click', async (event) => {
+        event.stopPropagation()
         const id = event.target.getAttribute('data-product-id')
         console.log(id)
         const response = await fetch(`/api/products/purchase/${id}`, {
