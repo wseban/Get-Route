@@ -56,12 +56,16 @@ router.get("/profile", withAuth, async (req, res) => {
 });
 
 // GET route for navigating to add new product page
-router.get("/profile/products", withAuth, (req, res) => {
-  res.render("products", { logged_in: req.session.logged_in });
+router.get("/profile/products", withAuth, async (req, res) => {
+  const tagsDataDb = await Tag.findAll({});
+  const tags = tagsDataDb.map((tag) => tag.get({plain: true}))
+  res.render("products", { tags, logged_in: req.session.logged_in });
 });
 
 
 router.get("/profile/products/:id", withAuth, async (req, res) => {
+  const tagsDataDb = await Tag.findAll({});
+  const tags = tagsDataDb.map((tag) => tag.get({plain: true}))
   const productDataDb = await Product.findOne({    
     where: {
       id:req.params.id,
@@ -70,8 +74,11 @@ router.get("/profile/products/:id", withAuth, async (req, res) => {
     include: [{model: Tag}]
   }) 
   const product = productDataDb.get({plain:true});
-
-  res.render("products", {product, logged_in: req.session.logged_in });
+  console.log(product)
+  for (tag of tags) {
+    tag['checked'] = product.tags.map(({ id }) => id).includes(tag.id)
+  }
+  res.render("products", {product, tags, logged_in: req.session.logged_in });
 });
 
 router.get("/products/:id", async (req, res) => {
