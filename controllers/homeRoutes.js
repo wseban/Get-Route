@@ -84,11 +84,13 @@ router.get("/profile", withAuth, async (req, res) => {
     },
     include: [{ model: Tag }],
   });
+  const userDataDb = await User.findByPk(req.session.user_id)
+  const user = userDataDb.get({plain: true});
   const products = productsDataDb.map((product) => {
     let out = product.get({ plain: true });
     return { ...out, profile: true };
   });
-  res.render("profile", { products, logged_in: req.session.logged_in });
+  res.render("profile", { products, user, logged_in: req.session.logged_in });
 });
 
 // GET route for navigating to add new product page

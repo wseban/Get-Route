@@ -19,13 +19,11 @@
       >
         <!--  #89a0af  blue-ish grey shade//-->
         <div
-          class="container-fluid d-flex justify-content-between align-items-center"
-        >
+          class="container-fluid d-flex justify-content-between align-items-center">
+          <img src="/pics/Get Route-1 (2).png" width="70px" height="70px">
           <div class="row w-100">
             <div class="col-lg-6 col-md-4 col-sm-12">
-              <h1>
-                Get Route
-              </h1>
+              <a href="/" style="text-decoration: none; color:  black"><h1 href="/">Get Route</h1></a>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-12">
               <form class="form-inline">
@@ -56,17 +54,13 @@
             <div class="col-lg-3 col-md-4 col-sm-12">
               {{#if logged_in}}
                 <nav class="d-flex justify-content-end align-items-center">
-                  <a href="/"><button
-                      class="btn"
-                      href="/"
-                      id="Home"
-                    >Home</button></a>
                   <a href="/profile"><button
                       class="btn"
                       href="/profile"
                       id="profile"
+                      style="color: black;"
                     >Profile</button></a>
-                  <button class="btn" id="logout">logout</button>
+                  <button class="btn" id="logout" style="color: black;">logout</button>
 
                 </nav>
               {{else}}
@@ -75,6 +69,7 @@
                       class="btn"
                       href="/login"
                       id="login"
+                      style="color: black;"
                     >login</button></a>
                 </nav>
               {{/if}}
