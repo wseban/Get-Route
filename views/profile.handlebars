@@ -1,9 +1,18 @@
 <div class="row justify-content-around">
-<button class="btn btn-success m-5 p-3" id = 'add-product' style = "width: 90%"><h5>Add New Product</h5></button>
+    <div class="col-9">
+        <button class="btn btn-primary m-5 p-3" id='add-product' style="width: 90%">
+            <h5>Add New Product</h5>
+        </button>
+        <div class="row">
+            {{#each products as |product| }}
+            {{> product-cards}}
+            {{/each}}
+        </div>
+    </div>
+    <div class="col-3" style="font-size: 36;">
+        Your Wallet: <br>
+        ${{user.funds}}
+    </div>
 </div>
-<div class="row">
-{{#each products as |product| }}
-{{> product-cards}}
-{{/each}}
-</div>
+
 <script src="/js/profile.js"></script>
