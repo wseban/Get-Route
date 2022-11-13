@@ -3,7 +3,7 @@ buyBtns.forEach((button) => {
     button.addEventListener('click', async (event) => {
         event.stopPropagation()
         const id = event.target.getAttribute('data-product-id')
-        console.log(id)
+
         const response = await fetch(`/api/products/purchase/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -15,6 +15,12 @@ buyBtns.forEach((button) => {
                 'success'
             )
             document.location.reload()
+        } else if (response.status === 402){
+            await Swal.fire(
+                'Insufficient Funds',
+                'Get your money up',
+                'error'
+            )
         }
     })
 })

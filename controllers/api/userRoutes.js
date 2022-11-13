@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../../models");
+const withAuth = require('../../utils/auth')
 
 // POST route for creating a new user
 router.post("/", async (req, res) => {
@@ -59,5 +60,14 @@ router.post("/logout", (req, res) => {
     res.status(404).end();
   }
 });
+
+router.get("/current", withAuth, async (req, res) => {
+  try{
+    const user = await User.findByPk(req.session.user_id)
+    res.status(200).json(user)
+  } catch (err) {
+    res.status(400).json(err)
+  }
+})
 
 module.exports = router;
