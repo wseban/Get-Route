@@ -62,8 +62,9 @@ router.get("/profile/products", withAuth, (req, res) => {
 
 
 router.get("/profile/products/:id", withAuth, async (req, res) => {
-  const productDataDb = await Product.findByPk(req.params.id,{
+  const productDataDb = await Product.findOne({    
     where: {
+      id:req.params.id,
       user_id: req.session.user_id,
     },
     include: [{model: Tag}]
