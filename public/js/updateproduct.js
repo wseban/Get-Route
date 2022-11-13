@@ -34,3 +34,4 @@ const updateFormHandler = async (event) => {
   document
   .querySelector("#update-product")
   .addEventListener("click", updateFormHandler);
+  
