@@ -47,7 +47,7 @@ router.put("/:id", withAuth, async (req, res) => {
       where: { product_id: req.params.id },
     });
     const existingTagIds = existingTags.map(({ tag_id }) => tag_id);
-    const newTags = req.body.tag_ids
+    const newTags = req.body.tag_ids.map(Number)
       .filter((tag_id) => !existingTagIds.includes(tag_id))
       .map((tag_id) => {
         return {
@@ -56,7 +56,7 @@ router.put("/:id", withAuth, async (req, res) => {
         };
       });
     const tagsToremove = existingTags
-      .filter(({ tag_id }) => !req.body.tag_ids.includes(tag_id))
+      .filter(({ tag_id }) => !req.body.tag_ids.map(Number).includes(tag_id))
       .map(({ id }) => id);
 
     const updatedProductTags = await Promise.all([
