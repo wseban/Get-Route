@@ -1,14 +1,17 @@
 [
-    {
-      "tag_name": "plain"
-    },
-    {
-      "tag_name": "shirt"
-    },
-    {
-      "tag_name": "running"
-    },
-    {
-      "tag_name": "shoes"
-    }
-  ]
+  {
+    "tag_name": "mobile"
+  },
+  {
+    "tag_name": "laptop"
+  },
+  {
+    "tag_name": "oil"
+  },
+  {
+    "tag_name": "serum"
+  },
+  {
+    "tag_name": "perfume"
+  }
+]
