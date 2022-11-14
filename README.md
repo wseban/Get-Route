@@ -4,7 +4,7 @@
 
 Get Route is a is an e-commerce website where users can sell, update, review and buy the products.
 
-Here is the link to the [deployed application]()
+Here is the link to the [deployed application](http://get-route-group-5.herokuapp.com/)
 
 ## Why?
 
@@ -36,10 +36,6 @@ We wanted to create an user-friendly ecommerce shopping site for the users.
 ## Usage
 
 This project can be used in any web browser or on any devices including the mobile devices.
-
-The following is the demo screenshot of the deployed application.
-
-![Demo screenshot]()
 
 Following is a code snippet of the application page.
 

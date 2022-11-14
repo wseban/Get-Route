@@ -5,13 +5,11 @@ const createFormHandler = async (event) => {
   const description = document.querySelector("#description").value.trim();
   const price = document.querySelector("#price").value.trim();
   const stock = document.querySelector("#stock").value.trim();
-  var tag_ids = []
-  var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+  var tag_ids = [];
+  var checkboxes = document.querySelectorAll("input[type=checkbox]:checked");
   for (var i = 0; i < checkboxes.length; i++) {
-    tag_ids.push(checkboxes[i].getAttribute('data-tag-id'))
+    tag_ids.push(checkboxes[i].getAttribute("data-tag-id"));
   }
-
-
 
   if (isNaN(price)) {
     alert("Price must be a number");
