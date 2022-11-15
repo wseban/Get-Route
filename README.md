@@ -73,8 +73,16 @@ router.post("/", async (req, res) => {
 
 ## User Stories
 
--
--
+- As a user, I would like to buy and sell products.
+  [demo](/public/pics/buy-sell-product.gif)
+- As a user, I want to be able to add, edit, and delete a product for sale.
+  [demo](./public/pics/edit-add-product.gif)
+- As a user, I want to filter the products by tags, so that I can find a product with that tag.
+  [demo](./public/pics/filter%20-Get%20Route.gif)
+- As a user, I want to search a product through a search bar, so I can find a product with the exact name.
+  [demo](./public/pics/search%20-Get%20Route.gif)
+- As a user, I want to be able to view and add a review on a specific product.
+  [demo](./public/pics/product-get-route.gif)
 
 ## Collaborators
 
