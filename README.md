@@ -6,6 +6,8 @@ Get Route is a is an e-commerce website where users can sell, update, review and
 
 Here is the link to the [deployed application](http://get-route-group-5.herokuapp.com/)
 
+Here is the demo screenshot of the deployed application [demo](./public/pics/Get%20Route.gif)
+
 ## Why?
 
 We wanted to create an user-friendly ecommerce shopping site for the users.
@@ -68,6 +70,11 @@ router.post("/", async (req, res) => {
 - Heroku
 - Bootstrap
 - Sweetalert
+
+## User Stories
+
+-
+-
 
 ## Collaborators
 
