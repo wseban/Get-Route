@@ -80,15 +80,24 @@ router.post("/", async (req, res) => {
 ## User Stories
 
 - As a user, I would like to buy and sell products.
-  [demo](/public/pics/buy-sell-product.gif)
+
+  ![demo](/public/pics/buy-sell-product.gif)
+
 - As a user, I want to be able to add, edit, and delete a product for sale.
-  [demo](./public/pics/edit-add-product.gif)
+
+  ![demo](./public/pics/edit-add-product.gif)
+
 - As a user, I want to filter the products by tags, so that I can find a product with that tag.
-  [demo](./public/pics/filter%20-Get%20Route.gif)
+
+  ![demo](./public/pics/filter%20-Get%20Route.gif)
+
 - As a user, I want to search a product through a search bar, so I can find a product with the exact name.
-  [demo](./public/pics/search%20-Get%20Route.gif)
+
+  ![demo](./public/pics/search%20-Get%20Route.gif)
+
 - As a user, I want to be able to view and add a review on a specific product.
-  [demo](./public/pics/product-get-route.gif)
+
+  ![demo](./public/pics/product-get-route.gif)
 
 ## Description of CSS Frameworks Used
 
@@ -99,7 +108,21 @@ Bootstrap is a free and open-source CSS framework directed at responsive, mobile
 
 ## Gif of site at different screen sizes
 
-Mobile version of the app [demo](./public/pics/mobile%20version.gif)
+Mobile version of the app
+
+![demo](./public/pics/mobile%20version.gif)
+
+Tablet version of the app
+
+![demo](./public/pics/tablet%20version.gif)
+
+Desktop version of the app
+
+![demo](./public/pics/desktop%20version.gif)
+
+Large Desktop version of the app
+
+![demo](./public/pics/large%20desktops%20version.gif)
 
 ## Learning Objectives
 
