@@ -225,10 +225,10 @@ Major learning objectives for this project were
 
 ## Collaborators
 
-- Joseph Jensen, GitHub [https://github.com/joedjensen]
-- Swetha Pothuganti, GitHub [https://github.com/shwethareddy0]
-- William Seban, GitHub [https://github.com/wseban]
-- Angel Matias, GitHub [https://github.com/robogf]
+- Joseph Jensen, [GitHub](https://github.com/joedjensen)
+- Swetha Pothuganti, [GitHub](https://github.com/shwethareddy0)
+- William Seban, [GitHub](https://github.com/wseban)
+- Angel Matias, [GitHub](https://github.com/robogf)
 
 ## License
 
