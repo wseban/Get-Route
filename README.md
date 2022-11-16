@@ -10,7 +10,7 @@ They can have their own accounts/profiles where they can add,update the product 
 
 Here is the link to the [deployed application](http://get-route-group-5.herokuapp.com/)
 
-Here is the demo screenshot of the deployed application [demo](./public/pics/Get%20Route.gif)
+Here is the demo screenshot of the deployed application ![demo](./public/pics/Get%20Route.gif)
 
 ## Why?
 
@@ -28,8 +28,12 @@ Given that an online marketplace utilizes a very clear back end and uses all rou
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
+- [Models and Relationships](#models-and-relationships)
+- [API Routes](#api-routes)
 - [User Stories](#user-stories)
-- [Credits](#credits)
+- [CSS Framework](#css-framework)
+- [Learning Objectives](#learning-objectives)
+- [Collaborators](#collaborators)
 - [License](#license)
 
 ## Installation
@@ -77,6 +81,94 @@ router.post("/", async (req, res) => {
 - Bootstrap
 - Sweetalert
 
+## Models and Relationships
+
+Basic models are below. Products belong to a user (the seller). Reviews belong to a product and a user. Tags have a many to many relationship with Products through the product tag table
+![models](./public/pics/Screen%20Shot%202022-11-14%20at%201.35.24%20PM-1.png)
+![relationships](./public/pics/models.png)
+
+## API Routes
+
+Below are example calls made to the API. Reference the seed data for examples of how to format your request bodies.
+
+Create user
+
+```Javascript
+const response = await fetch("/api/users/", {
+  method: "POST",
+  body: JSON.stringify({ username, email, password }),
+  headers: { "Content-Type": "application/json" },
+});
+```
+
+Login
+
+```Javascript
+const response = await fetch("/api/users/login", {
+  method: "POST",
+  body: JSON.stringify({ email, password }),
+  headers: { "Content-Type": "application/json" },
+});
+```
+
+Logout
+
+```Javascript
+const response = await fetch('/api/users/logout', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+});
+```
+
+Create product
+
+```Javascript
+const response = await fetch("/api/products/", {
+  method: "POST",
+  body: JSON.stringify({ name, description, price, stock, tag_ids }),
+  headers: { "Content-Type": "application/json" },
+});
+```
+
+Create review
+
+```Javascript
+const response = await fetch("/api/reviews/", {
+  method: "POST",
+  body: JSON.stringify({ content, product_id: id  }),
+  headers: { "Content-Type": "application/json" },
+});
+```
+
+Send purchase
+
+```Javascript
+const response = await fetch(`/api/products/purchase/${id}`, {
+  method: "PUT",
+  headers: { "Content-Type": "application/json" },
+});
+```
+
+Update Product
+
+```Javascript
+const response = await fetch(`/api/products/${id}`, {
+  method: "PUT",
+  body: JSON.stringify({ name, description, price, stock, tag_ids }),
+  headers: { "Content-Type": "application/json" },
+});
+```
+
+Delete Product
+
+```Javascript
+const response = await fetch(`/api/products/${id}`, {
+  method: "DELETE",
+});
+```
+
+    
+
 ## User Stories
 
 - As a user, I would like to buy and sell products.
@@ -99,14 +191,14 @@ router.post("/", async (req, res) => {
 
   ![demo](./public/pics/product-get-route.gif)
 
-## Description of CSS Frameworks Used
+## CSS Framework
 
-## BootStrap
+### BootStrap
 
 Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains HTML, CSS and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.
 [Docs](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
 
-## Gif of site at different screen sizes
+### Gif of site at different screen sizes
 
 Mobile version of the app
 
@@ -125,6 +217,11 @@ Large Desktop version of the app
 ![demo](./public/pics/large%20desktops%20version.gif)
 
 ## Learning Objectives
+Major learning objectives for this project were
+- Proper MVC framework
+- Server calls involving backend queries on multiple models
+- Handlebars
+- Single and multiple page navigation
 
 ## Collaborators
 
